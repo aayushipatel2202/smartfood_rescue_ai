@@ -6,8 +6,6 @@ from app.utils.geocode import forward_geocode
 
 auth_bp = Blueprint("auth", __name__)
 
-
-# ---------------- DONOR REGISTER ----------------
 @auth_bp.route("/donor/register", methods=["POST"])
 def donor_register():
     data = request.get_json()
@@ -47,8 +45,6 @@ def donor_register():
         }
     }), 201
 
-
-# ---------------- DONOR LOGIN ----------------
 @auth_bp.route("/donor/login", methods=["POST"])
 def donor_login():
     data = request.get_json()
@@ -75,8 +71,6 @@ def donor_login():
         }
     }), 200
 
-
-# ---------------- NGO REGISTER ----------------
 @auth_bp.route("/ngo/register", methods=["POST"])
 def ngo_register():
     data = request.get_json()
@@ -117,8 +111,6 @@ def ngo_register():
         }
     }), 201
 
-
-# ---------------- NGO LOGIN ----------------
 @auth_bp.route("/ngo/login", methods=["POST"])
 def ngo_login():
     data = request.get_json()

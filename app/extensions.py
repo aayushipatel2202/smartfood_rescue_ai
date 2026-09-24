@@ -4,7 +4,6 @@ from app.config import Config
 client = MongoClient(Config.MONGO_URI)
 db = client[Config.DB_NAME]
 
-# Collections — matches final 6-collection schema (donor/NGO split)
 donors_collection = db["donors"]
 ngos_collection = db["ngos"]
 donations_collection = db["donations"]
