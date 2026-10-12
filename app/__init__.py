@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, app
 from flask_cors import CORS
 from app.config import Config
 
@@ -10,9 +10,11 @@ def create_app():
     # Register blueprints (routes) — will add more each week
     from app.routes.auth_routes import auth_bp
     from app.routes.donation_routes import donation_bp
+    from app.routes.dashboard_routes import dashboard_bp
 
     app.register_blueprint(auth_bp, url_prefix="/api/auth")
     app.register_blueprint(donation_bp, url_prefix="/api/donations")
+    app.register_blueprint(dashboard_bp, url_prefix="/api")
 
     @app.route("/api/health", methods=["GET"])
     def health_check():

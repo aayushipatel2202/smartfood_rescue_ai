@@ -21,3 +21,11 @@ def get_donor_level(total_points: int) -> str:
         if low <= total_points <= high:
             return level
     return "BRONZE"
+
+def calculate_points(estimated_meals) -> int:
+    """Converts an AI meal estimate into Impact Points. Falls back to a flat amount
+    if the AI estimate wasn't a usable number (e.g. 'Unavailable')."""
+    try:
+        return int(float(estimated_meals)) * 10
+    except (TypeError, ValueError):
+        return 50
